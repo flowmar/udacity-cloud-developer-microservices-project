@@ -2,6 +2,16 @@ language: node_js
 node_js:
   - 13
 
+branches:
+  only:
+    - master
+  except:
+    - develop
+
+git:
+  strategy: clone
+  depth: true
+
 services:
   - docker
 
