@@ -10,7 +10,7 @@ branches:
 
 git:
   strategy: clone
-  depth: true
+  depth: 1
 
 services:
   - docker
