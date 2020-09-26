@@ -10,11 +10,14 @@ COPY package*.json ./
 # Install dependencies in Docker
 RUN npm install
 
+# Build application
+RUN npm run build
+
 # Copy app from local environment into the Docker image
 COPY . .
 
 # Set the API's port number
-EXPOSE 8080
+EXPOSE 80
 
 # Define Docker's behavior when the image is run
 CMD ["node", "./www/server.js"]

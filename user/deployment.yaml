@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: user
+  labels:
+    app: user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - name: user-module
+          image: flowmar/user-module
+          ports:
+            - containerPort: 80
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        initialDelaySeconds: 3
+        periodSeconds: 3
