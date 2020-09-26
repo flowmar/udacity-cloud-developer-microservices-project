@@ -10,9 +10,6 @@ COPY package*.json ./
 # Install dependencies in Docker
 RUN npm install
 
-# Build application
-RUN npm run build
-
 # Copy app from local environment into the Docker image
 COPY . .
 
