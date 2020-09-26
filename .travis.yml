@@ -25,12 +25,12 @@ before_script:
 
 script:
   - docker --version
-  - docker build -t flowmar/micro-frontend:latest ./frontend/
-  - docker build -t flowmar/user-module:latest ./user/
   - docker build -t flowmar/feed-module:latest ./feed/
+  - docker build -t flowmar/user-module:latest ./user/
+  - docker build -t flowmar/micro-frontend:latest ./frontend/
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push flowmar/micro-frontend
-  - docker push flowmar/user-module
   - docker push flowmar/feed-module
+  - docker push flowmar/user-module
+  - docker push flowmar/micro-frontend
