@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: feed
   labels:
     app: feed
-  name: feed
 spec:
   replicas: 2
   selector:

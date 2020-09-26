@@ -1,27 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: user
   labels:
-    app: frontend
+    app: user
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: user
   template:
     metadata:
       labels:
-        app: frontend
+        app: user
     spec:
       containers:
-        - name: micro-frontend
-          image: flowmar/micro-frontend
+        - name: user-module
+          image: flowmar/user-module
           ports:
             - containerPort: 80
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 8080
-        initialDelaySeconds: 3
-        periodSeconds: 3

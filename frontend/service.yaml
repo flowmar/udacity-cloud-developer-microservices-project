@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: feed
+  name: frontend
   labels:
-    app: feed
+    run: frontend
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
   selector:
-    app: feed
+    app: frontend
